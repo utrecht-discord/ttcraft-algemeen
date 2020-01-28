@@ -149,7 +149,7 @@ bot.on("message", async message => {
         message.channel.send("Je moet 5 seconden wachten om te kunnen praten..")
     }
 
-
+if(message.content.startsWith(`?`)) return;
 
 });
 

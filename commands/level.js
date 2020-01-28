@@ -29,7 +29,7 @@ module.exports.run  = async (bot, message, args) => {
     .addField("Level: ", levelUser, true)
     .addField("xp", xpuser, true)
     .setFooter(`Je hebt nog ${whenNextLevel} nodig voor het volgende level.`, message.author.displayAvatarURL)
-    .setColor("ff7363");
+    .setColor("#FF0000");
 
     message.channel.send(embedLevel);
 }

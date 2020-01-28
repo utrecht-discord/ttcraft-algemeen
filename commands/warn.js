@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
 
     var warnEmbed = new discord.RichEmbed()
         .setDescription("Warn")
-        .setColor("#ff6600")
+        .setColor("#FF0000")
         .addField("Gebruiker:", user)
         .addField("Moderator:", message.author)
         .addField("Reden:", reason);

@@ -7,8 +7,8 @@ try {
 
     var help = new discord.RichEmbed()
     .setTitle("Bot status: _97%_")
-    .setDescription("Bot zal 20 januari helemaal af zijn!")
-    .setColor("#fc0398")
+    .setDescription("Bot zal 1 februari helemaal af zijn!")
+    .setColor("#FF0000")
 
     message.author.send(help);
 

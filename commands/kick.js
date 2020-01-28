@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, arguments) => {
 
     var kick = new discord.RichEmbed()
     .setTitle("Kick")
-    .setColor("#ff5900")
+    .setColor("#FF0000")
     .addField("Gebruiker:", kickUser)
     .addField("Moderator:", message.author)
     .addField("Kanaal:", message.channel)

@@ -13,22 +13,21 @@ fs.readdir("./commands/", (err, files) => {
     var jsFiles = files.filter(f => f.split(".").pop() === "js");
 
     if (jsFiles.length <= 0) {
-        console.log("Kon geen files vinden");
+        console.log("Kon geen files vinden!");
         return;
     }
 
     jsFiles.forEach((f, i) => {
 
         var fileGet = require(`./commands/${f}`);
-        console.log(`De file ${f} is geladen`);
+        console.log(`${f} is geladen!`);
 
-        bot.commands.set(fileGet.help.name, fileGet);
-
+        bot.commands.set(fileGet.help.name, fileGet)
 
     })
 
-
 });
+
 
 bot.on("ready", () => {
     console.log("Bot is online");
@@ -41,22 +40,6 @@ bot.on("ready", () => {
         }
     });
 });
-
-// bot.on("guildmemberAdd", member => {
-
-//     var role = member.guild.roles.find("name", "Speler");
-
-//     if (!role) return;
-
-//     member.addRole(role);
-
-//     const channel = member.guild.channels.find("name", "welkom");
-
-//     if (!channel) return;
-
-//     channel.send(`Welkom in ${server.name}, ${member}`);
-
-// });
 
 bot.on("guildMemberAdd", member => {
 
@@ -92,9 +75,6 @@ bot.on("guildMemberRemove", member => {
     lchannel.send(JoinMessage);
 
 });
-
-
-
 
 
 bot.on("message", async message => {

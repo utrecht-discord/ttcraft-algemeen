@@ -76,6 +76,24 @@ bot.on("guildMemberAdd", member => {
 });
 
 
+bot.on("guildMemberRemove", member => {
+
+    const lchannel = member.guild.channels.find("name", "tot-ziens");
+    if (!lchannel) console.log("Kanaal `tot-ziens` niet gevonden..");
+
+    var JoinMessage = new discord.RichEmbed()
+        .setTitle("_Er is een speler weggegaan!_")
+        .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
+        .setDescription(`${member.user.username} is weggegaan!`)
+        .setColor("#ff0000")
+        .setTimestamp()
+        .setFooter("Leave system");
+
+    lchannel.send(JoinMessage);
+
+});
+
+
 
 
 
@@ -148,8 +166,6 @@ bot.on("message", async message => {
         message.delete();
         message.channel.send("Je moet 5 seconden wachten om te kunnen praten..")
     }
-
-if(message.content.startsWith(`?`)) return;
 
 });
 

@@ -8,9 +8,9 @@ module.exports.run = async (bot, message, args) => {
 
     var bericht = args[1];
 
-    if(!bericht){
-        return message.channels.send("Geef ook een bericht mee!");
-    } else message.channel.send("Het bericht is verstuurd naar ", user);
+    if(bericht){ 
+        return message.channel.send(`Het bericht is verstuurd naar ${user}!`);
+    } else if(!bericht) return message.channel.send(`Geef ook een bericht mee om te sturen naar ${user}!`);
 
 
     user.send(bericht);

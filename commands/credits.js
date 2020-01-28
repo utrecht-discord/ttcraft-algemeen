@@ -28,5 +28,5 @@ try {
 
 
 module.exports.help = {
-    name: "help"
+    name: "credits"
 }

@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
     var embedClaimTicket = new discord.RichEmbed()
         .setTitle("Hoi, " + message.channel.name)
-        .setDescription(`Je ticket is overgenomen door: ${message.author}. Wil je als staff de ticket overnemen, vraag dat dan aan ${message.author}!`)
+        .setDescription(`Je ticket is overgenomen door: ${message.author}. \nWil je als staff de ticket overnemen, vraag dat dan aan ${message.author}!`)
         .setColor("#ffa500")
         .setThumbnail(icon)
         .setFooter("ticket overgenomen");

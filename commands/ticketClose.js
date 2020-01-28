@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
  
     var embedCloseTicket = new discord.RichEmbed()
         .setTitle("Hoi, " + message.channel.name)
-        .setDescription("Je ticket is **__GESLOTEN__**. Wil je een nieuwe maken doe dan !ticket")
+        .setDescription("Je ticket is **__GESLOTEN__**. \nWil je een nieuwe maken doe dan !ticket")
         .setColor("#FF0000")
         .addField("Reden van sluiting: ", argumenten)
         .setFooter("ticket gesloten");

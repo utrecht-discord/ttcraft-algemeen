@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const botconfig = require("./botconfig");
-
+const levelFile = require("./data/levels.json")
 const fs = require("fs");
 
 const bot = new discord.Client();

@@ -161,11 +161,6 @@ bot.on("message", async message => {
 
         message.channel.send(embedLevel);
     }
-    if(!message.content.startsWith(prefix)) return;
-    if(cooldown.has(message.author.id)){
-        message.delete();
-        message.channel.send("Je moet 5 seconden wachten om te kunnen praten..")
-    }
 
 });
 

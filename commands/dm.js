@@ -6,13 +6,12 @@ module.exports.run = async (bot, message, args) => {
 
     if (!user) return message.channel.send("Speler niet gevonden.");
 
-    if(!args[1]){
+    var bericht = args.join(" ");
+
+    if(!bericht){
         return message.channels.send("Geef ook een bericht mee!");
     } else message.channel.send("Het bericht is verstuurd naar ", user);
 
-    var bericht = args.join(" ");
-
-    
 
     user.send(bericht);
 

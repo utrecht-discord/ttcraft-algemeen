@@ -9,9 +9,19 @@ module.exports.run = async (bot, message, args) => {
     if (!user) return message.channel.send("Speler niet gevonden.");
 
     var bericht = args.join(" ").slice(22);
-    user.send(bericht);
+
+    var berichtStuur = new discord.RichEmbed()
+        .setDescription("Bericht succesvol aangekomen!")
+        .addField("U heeft een bericht ontvangen van: ", message.author)
+        .addField("Bericht: ", bericht);
+user.send(berichtStuur);
+
     if(bericht){ 
-        return message.channel.send(`Het volgende bericht is verstuurd naar ${user}:\n${bericht}`);
+        var berichtSucces = new discord.RichEmbed()
+        .setDescription("Bericht succesvol gestuurd!")
+        .addField("U heeft een bericht gestuurd naar: ", user)
+        .addField("Bericht: ", bericht);
+        return message.channel.send(berichtSucces);
     } else if(!bericht) return message.channel.send(`Geef ook een bericht mee om te sturen naar ${user}!`);
 
     

@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
  
     } else {
  
-        message.channel.send("Je kan alleen tickets sluiten.");
+        message.channel.send("Je kan geen tickets sluiten.");
  
     }
  

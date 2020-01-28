@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     var bericht = args.join(" ").slice(22);
     user.send(bericht);
     if(bericht){ 
-        return message.channel.send(`Het bericht is verstuurd naar ${user}!`);
+        return message.channel.send(`Het volgende bericht is verstuurd naar ${user}:\n${bericht}`);
     } else if(!bericht) return message.channel.send(`Geef ook een bericht mee om te sturen naar ${user}!`);
 
     

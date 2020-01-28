@@ -6,17 +6,11 @@ module.exports.run = async (bot, message, args) => {
 
     if (!user) return message.channel.send("Speler niet gevonden.");
 
-    var reason = arguments.join(" ").slice(22);
+    var bericht = args[1];
 
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Alleen staff leden kunnen dit.");
+    if(!bericht) return message.channels.send("Geef ook een bericht mee!");
 
-
-
-
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Alleen staff leden kunnen dit.").then(m => m.delete(5000));
-    var dmmessage = args.join(" ");
-    message.delete().catch();
-    message.user.send(dmmessage);
+    user.send(bericht);
 
 
 }

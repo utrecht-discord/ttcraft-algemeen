@@ -36,7 +36,7 @@ bot.on("ready", () => {
     bot.user.setPresence({
         status: "online",
         game: {
-            name: "TTCraft || play.ttcraft.eu || !help",
+            name: "TTCraft || play.ttcraft.eu || ?help",
             type: "PLAYING"
         }
     });

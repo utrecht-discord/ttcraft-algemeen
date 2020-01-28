@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     const bericht = args.splice(1, args.length).join(' ') || '**Geen bericht meegegeven**';
  
     // Kanaal waar reviews inkomen opzoeken.
-    var reviewChannel = message.guild.channels.find('name', 'reviews');
+    var reviewChannel = message.guild.channels.find('name', '👍reviews');
     // als kanaal niet is gevonden geef een bericht.
     if (!reviewChannel) return message.channel.send("Kanaal niet gevonden");
  

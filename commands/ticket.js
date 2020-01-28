@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
  
     // ID van de categorie van de tickets.
-    const categoryId = "671675258868334613";
+    const categoryId = "661293576826781706";
 
     var argumenten = args.join(" ");
     if(!argumenten) argumenten = "Niet opgegeven";

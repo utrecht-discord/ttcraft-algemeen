@@ -43,7 +43,7 @@ bot.on("ready", () => {
 
 bot.on("guildMemberAdd", member => {
 
-    const channel = member.guild.channels.find("name", "welkom");
+    const channel = member.guild.channels.find("name", "👋welkom");
     if (!channel) console.log("Kanaal `Welkom` niet gevonden..");
 
     var JoinMessage = new discord.RichEmbed()
@@ -61,7 +61,7 @@ bot.on("guildMemberAdd", member => {
 
 bot.on("guildMemberRemove", member => {
 
-    const lchannel = member.guild.channels.find("name", "tot-ziens");
+    const lchannel = member.guild.channels.find("name", "👋tot-ziens");
     if (!lchannel) console.log("Kanaal `tot-ziens` niet gevonden..");
 
     var JoinMessage = new discord.RichEmbed()

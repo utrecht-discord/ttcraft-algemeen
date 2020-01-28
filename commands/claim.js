@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.delete();
     // Id van category van tickets.
-    const categoryId = "669920780229804042";
+    const categoryId = "671675258868334613";
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Jij kunt dit niet doen!");
     // Als bericht in ticket kanaal is dan verwijder kanaal ander zend bericht
     if (message.channel.parentID !== categoryId) {

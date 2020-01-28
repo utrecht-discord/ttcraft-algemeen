@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!user) return message.channel.send("Speler niet gevonden.");
 
-    var bericht = arguments[1].join(" ");
+    var bericht = arguments.join(" ").slice(22);
     user.send(bericht);
     if(bericht){ 
         return message.channel.send(`Het bericht is verstuurd naar ${user}!`);

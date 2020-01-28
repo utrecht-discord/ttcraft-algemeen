@@ -29,6 +29,15 @@ module.exports.run = async (bot, message, args) => {
 
     warnChannel.send(warnEmbed);
 
+    var warn2Embed = new discord.RichEmbed()
+        .setDescription("Warn")
+        .setColor("#FF0000")
+        .addField("Moderator:", message.author)
+        .addField("Reden:", reason);
+
+    user.send(warn2Embed);
+
+    return message.channel.send(`${user} is succesvol gewaarschuwd! \n Reden: ${reason}.`);
 
 }
 

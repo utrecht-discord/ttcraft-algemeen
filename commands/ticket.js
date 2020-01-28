@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
 
     var embedCreateTicket = new discord.RichEmbed()
         .setTitle("Hoi, " + message.author.username)
-        .setColor("#ffa500")
+        .setColor("#FF0000")
         .setThumbnail(icon)
         .setDescription("Je ticket is volledig aangemaakt!")
         .addField("Bericht: ", argumenten);
@@ -65,7 +65,7 @@ module.exports.run = async (bot, message, args) => {
             var embedParent = new discord.RichEmbed()
                 .setTitle("Ticket")
                 .setDescription("Als je geen vraag of bericht heb meegegeven bij de command, type alvast je vraag/bericht in deze ticket!")
-                .setColor("#ffa500")
+                .setColor("#FF0000")
                 .setThumbnail(icon)
                 .addField("Ticket aangemaakt door: ", message.author)
                 .addField("Bericht: ", argumenten);

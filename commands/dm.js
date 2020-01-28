@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
     var berichtStuur = new discord.RichEmbed()
         .setDescription("Bericht succesvol aangekomen!")
-        .setColor("#00ee00")
+        .setColor("#FF0000")
         .addField("U heeft een bericht ontvangen van: ", message.author)
         .addField("Bericht: ", bericht);
 user.send(berichtStuur);
@@ -20,7 +20,7 @@ user.send(berichtStuur);
     if(bericht){ 
         var berichtSucces = new discord.RichEmbed()
         .setDescription("Bericht succesvol gestuurd!")
-        .setColor("#00ee00")
+        .setColor("#FF0000")
         .addField("U heeft een bericht gestuurd naar: ", user)
         .addField("Bericht: ", bericht);
         return message.channel.send(berichtSucces);

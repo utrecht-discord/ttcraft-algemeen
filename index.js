@@ -1,6 +1,5 @@
 const discord = require("discord.js");
 const botconfig = require("./botconfig");
-const levelFile = require("./data/levels.json")
 const fs = require("fs");
 
 const bot = new discord.Client();
@@ -96,52 +95,6 @@ bot.on("message", async message => {
     var commands = bot.commands.get(command.slice(prefix.length));
 
     if (commands) commands.run(bot, message, arguments);
-
-    var randomXp = Math.floor(Math.random(1) * 15) + 1;
-
-    var idUser = message.author.id;
-
-    if (!levelFile[idUser]) {
-
-
-        levelFile[idUser] = {
-
-            xp: 0,
-            level: 0 
-
-
-        }
-
-    }
-        console.log(randomXp);
-
-
-
-    levelFile[idUser].xp += randomXp;
-
-    var levelUser = levelFile[idUser].level;
-    var xpuser = levelFile[idUser].xp;
-    var nextLevelXp = levelUser * 300;
-
-    if (!nextLevelXp === 0) nextLevelXp = 100;
-
-    if (xpuser >= nextLevelXp) {
-
-        levelFile[idUser].level += 1;
-
-        fs.writeFile("./data/levels.json", JSON.stringify(levelFile), err => {
-
-            if (err) console.log(err);
-
-        });
-
-        var embedLevel = new discord.RichEmbed()
-        .setTitle("**LEVEL UP!!**")
-        .addField("Level: ",  levelFile[idUser].level)
-        .setColor("74ff87");
-
-        message.channel.send(embedLevel);
-    }
 
 });
 

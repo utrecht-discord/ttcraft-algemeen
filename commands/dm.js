@@ -2,7 +2,9 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    if(!message.author.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Je moet staff zijn om dit te kunnen doen!");
+    var author = message.author; 
+
+    if(!author.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Je moet staff zijn om dit te kunnen doen!");
 
     var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 

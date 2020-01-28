@@ -21,6 +21,7 @@ fs.readdir("./commands/", (err, files) => {
 
         var fileGet = require(`./commands/${f}`);
         console.log(`${f} is geladen!`);
+        console.log(`TTCraft is online!`);
 
         bot.commands.set(fileGet.help.name, fileGet)
 

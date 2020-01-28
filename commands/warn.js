@@ -1,8 +1,6 @@
 const discord = require("discord.js");
 const fs = require("fs");
 
-const warns = JSON.parse(fs.readFileSync("./data/warnings.json", "utf8"));
-
 module.exports.run = async (bot, message, args) => {
 
     // !warn [user] [reden]
@@ -18,16 +16,6 @@ module.exports.run = async (bot, message, args) => {
     var reason = args.join(" ").slice(22);
 
     if (!reason) return message.channel.send("Geef een reden op..");
-
-    if (!warns[user.id]) warns[user.id] = {
-        warns: 0
-    };
-
-
-    warns[user.id].warns++;
-
-    fs.writeFile("./warnings.json", JSON.stringify(warns));
-
 
     var warnEmbed = new discord.RichEmbed()
         .setDescription("Warn")

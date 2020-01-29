@@ -55,7 +55,8 @@ module.exports.run = async (bot, message, args) => {
  
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
-                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true,
+                "READ_MESSAGE_HISTORY": true
             
             });
 

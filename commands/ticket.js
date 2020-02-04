@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     message.guild.channels.forEach((channel) => {
  
         // Als ticket is gemaakt, zend bericht.
-        if (channel.name == userName.toLowerCase() + "-" + userDiscriminator) {
+        if (channel.name == userName.toLowerCase() + "-#" + userDiscriminator) {
  
             message.channel.send("Je hebt al een ticket aangemaakt");
  
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
 
     var embedCreateTicket = new discord.RichEmbed()
         .setTitle("Hoi, " + message.author.username)
-        .setColor("#FF0000")
+        .setColor("#ffa500")
         .setThumbnail(icon)
         .setDescription("Je ticket is volledig aangemaakt!")
         .addField("Bericht: ", argumenten);
@@ -55,8 +55,7 @@ module.exports.run = async (bot, message, args) => {
  
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
-                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true,
-                "READ_MESSAGE_HISTORY": true
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
             
             });
 

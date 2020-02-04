@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(embedCreateTicket);
  
     // Maak kanaal en zet in juiste categorie.
-    message.guild.createChannel(userName + "-#" + userDiscriminator, "text").then((createdChan) => { // Maak kanaal
+    message.guild.createChannel(userName + "#" + userDiscriminator, "text").then((createdChan) => { // Maak kanaal
  
         createdChan.setParent(categoryId).then((settedParent) => { // Zet kanaal in category.
  
@@ -55,7 +55,8 @@ module.exports.run = async (bot, message, args) => {
  
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
-                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true,
+"READ_MESSAGE_HISTORY": true
             
             });
 

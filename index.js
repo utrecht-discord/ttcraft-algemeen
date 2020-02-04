@@ -13,21 +13,7 @@ fs.readdir("./commands/", (err, files) => {
 
     if (jsFiles.length <= 0) {
         console.log("Kon geen files vinden!");
-        return;
-    }
-
-    jsFiles.forEach((f, i) => {
-
-        var fileGet = require(`./commands/${f}`);
-        console.log(`${f} is geladen!`);
-        console.log(`TTCraft is online!`);
-
-        bot.commands.set(fileGet.help.name, fileGet)
-
-    })
-
-});
-
+        }
 
 bot.on("ready", () => {
     console.log("Bot is online");

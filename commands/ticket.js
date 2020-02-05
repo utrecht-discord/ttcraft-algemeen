@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
 
     var embedCreateTicket = new discord.RichEmbed()
         .setTitle("Hoi, " + message.author.username)
-        .setColor("#FF0000")
+        .setColor("#ffa500")
         .setThumbnail(icon)
         .setDescription("Je ticket is volledig aangemaakt!")
         .addField("Onderwerp: ", argumenten);

@@ -9,7 +9,7 @@ try {
     .setTitle("Credits:")
     .setDescription("Bot gemaakt door: @CrazyFedde#5655 & @Chris071_#0001")
     .setColor("#FF0000")
-    .setFooter("System &  Engineering");
+    .setFooter("System & Engineering");
 
     message.author.send(help);
 

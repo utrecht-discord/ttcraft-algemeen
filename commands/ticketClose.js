@@ -5,9 +5,11 @@ module.exports.run = async (bot, message, args) => {
     // Id van category van tickets.
     const categoryId = `661293576826781706`;
  
+    var argumenten = args.join(" ");
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Jij kunt dit niet doen!");
+    if(!argumenten) return message.channel.send("Geef een reden op om de ticket te sluiten!");
     // Als bericht in ticket kanaal is dan verwijder kanaal ander zend bericht
-    if (message.channel.parentID == categoryId) {
+    if (argumenten, message.channel.parentID == categoryId) {
         
         message.channel.delete();
  
@@ -17,12 +19,9 @@ module.exports.run = async (bot, message, args) => {
  
     }
  
-    var argumenten = args.join(" ");
-    if(!argumenten) return message.channel.send("Geef een reden op om de ticket te sluiten!");
-
     var embedCloseTicket = new discord.RichEmbed()
         .setTitle("Hoi, " + message.channel.name)
-        .setDescription("Je ticket is **__AFGEHANDELD__**. \nWil je een nieuwe maken doe dan !ticket")
+        .setDescription("Je ticket is **__KLAAR__**. \n Wil je een nieuwe maken doe dan !ticket in #🤖bot-commandos")
         .setColor("#FF0000")
         .addField("Reden van sluiting: ", argumenten)
         .setFooter("ticket gesloten");

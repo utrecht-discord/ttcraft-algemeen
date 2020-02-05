@@ -11,10 +11,11 @@ module.exports.run = async (bot, message, args) => {
     var bericht = args.join(" ").slice(22);
 
     var berichtStuur = new discord.RichEmbed()
-        .setDescription("Bericht succesvol aangekomen!")
+        .setDescription("Bericht")
         .setColor("#FF0000")
         .addField("U heeft een bericht ontvangen van: ", message.author)
-        .addField("Bericht: ", bericht);
+        .addField("Bericht: ", bericht)
+        .setFooter("ttcraft dm system");
 user.send(berichtStuur);
 
     if(bericht){ 

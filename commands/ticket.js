@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     const categoryId = "661293576826781706";
 
     var argumenten = args.join(" ");
-    if(!argumenten) argumenten = "Niet opgegeven";
+    if(!argumenten) argumenten = "Geen onderwerp opgegeven";
     // Verkrijg Gebruikersnaam
     var userName = message.author.username;
     // Verkrijg discriminator
@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         // Als ticket is gemaakt, zend bericht.
         if (channel.name == userName.toLowerCase() + "-#" + userDiscriminator) {
  
-            message.channel.send("Je hebt al een ticket aangemaakt");
+            message.channel.send("Je hebt al een ticket aangemaakt!");
  
             bool = true;
  
@@ -39,23 +39,24 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#FF0000")
         .setThumbnail(icon)
         .setDescription("Je ticket is volledig aangemaakt!")
-        .addField("Bericht: ", argumenten);
+        .addField("Onderwerp: ", argumenten);
  
     message.channel.send(embedCreateTicket);
  
     // Maak kanaal en zet in juiste categorie.
-    message.guild.createChannel(userName + "-#" + userDiscriminator, "text").then((createdChan) => { // Maak kanaal
+    message.guild.createChannel(userName + "#" + userDiscriminator, "text").then((createdChan) => { // Maak kanaal
  
         createdChan.setParent(categoryId).then((settedParent) => { // Zet kanaal in category.
  
             // Zet perms voor iedereen
-            settedParent.overwritePermissions(message.guild.roles.find('name', "Speler"), { "READ_MESSAGES": false });
+            settedParent.overwritePermissions(message.guild.roles.find('name', "😀 | member"), { "READ_MESSAGES": false });
             // Zet perms voor de gebruiker die ticket heeft aangemaakt.
             settedParent.overwritePermissions(message.author, {
  
                 "READ_MESSAGES": true, "SEND_MESSAGES": true,
                 "ATTACH_FILES": true, "CONNECT": true,
-                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true
+                "CREATE_INSTANT_INVITE": false, "ADD_REACTIONS": true,
+                "READ_MESSAGE_HISTORY": true
             
             });
 
@@ -64,7 +65,7 @@ module.exports.run = async (bot, message, args) => {
  
             var embedParent = new discord.RichEmbed()
                 .setTitle("Ticket")
-                .setDescription("Als je geen vraag of bericht heb meegegeven bij de command, type alvast je vraag/bericht in deze ticket!")
+                .setDescription("Als je geen onderwerp hebt meegegeven bij de command, \ntype alvast je onderwerp in deze ticket!\n\n Een stafflid zal zo snel mogelijk\nop deze ticket reageren met !claim")
                 .setColor("#FF0000")
                 .setThumbnail(icon)
                 .addField("Ticket aangemaakt door: ", message.author)

@@ -1,5 +1,6 @@
 const discord = require("discord.js");
-const botconfig = require("./botconfig");
+const botconfig = require("./botconfig.json");
+
 const fs = require("fs");
 
 const bot = new discord.Client();
@@ -13,7 +14,20 @@ fs.readdir("./commands/", (err, files) => {
 
     if (jsFiles.length <= 0) {
         console.log("Kon geen files vinden!");
-        }
+        return;
+    }
+
+    jsFiles.forEach((f, i) => {
+
+        var fileGet = require(`./commands/${f}`);
+        console.log(`${f} is geladen!`);
+
+        bot.commands.set(fileGet.help.name, fileGet)
+
+    })
+
+});
+
 
 bot.on("ready", () => {
     console.log("Bot is online");
@@ -28,6 +42,15 @@ bot.on("ready", () => {
 });
 
 bot.on("guildMemberAdd", member => {
+
+    var role = member.guild.roles.find("name", "😀 | member");
+    var role2 = member.guild.roles.find("name", "lid");
+
+    if (!role) return;
+    if (!role2) return;
+
+    member.addRole(role);
+    member.addRole(role2);
 
     const channel = member.guild.channels.find("name", "👋welkom");
     if (!channel) console.log("Kanaal `Welkom` niet gevonden..");
@@ -65,6 +88,7 @@ bot.on("guildMemberRemove", member => {
 
 bot.on("message", async message => {
 
+
     if (message.author.bot) return;
 
     if (message.channel.type === "dm") return;
@@ -77,14 +101,10 @@ bot.on("message", async message => {
 
     var arguments = messageArray.slice(1);
 
-
     var commands = bot.commands.get(command.slice(prefix.length));
 
     if (commands) commands.run(bot, message, arguments);
-
 });
 
 
-
-
-bot.login(process.env.token); 
+bot.login(process.env.token);
